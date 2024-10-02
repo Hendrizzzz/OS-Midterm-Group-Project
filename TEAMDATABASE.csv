@@ -5,8 +5,6 @@ Los Angeles Lakers,60,22,0.732,3,2023
 Golden State Warriors,58,24,0.707,5,2023
 Boston Celtics,55,27,0.671,8,2023
 Denver Nuggets,52,30,0.634,11,2023
-Miami Heat,49,33,0.598,14,2023
-Philadelphia 76ers,47,35,0.573,16,2023
 Phoenix Suns,44,38,0.537,19,2023
 Dallas Mavericks,42,40,0.512,21,2023
 Los Angeles Lakers,64,18,0.78,0,2022
@@ -15,8 +13,6 @@ Milwaukee Bucks,60,22,0.732,4,2022
 Golden State Warriors,57,25,0.695,7,2022
 Boston Celtics,53,29,0.646,11,2022
 Denver Nuggets,55,27,0.671,9,2022
-Miami Heat,48,34,0.585,16,2022
-Philadelphia 76ers,45,37,0.549,19,2022
 Phoenix Suns,41,41,0.5,23,2022
 Dallas Mavericks,43,39,0.524,21,2022
 Milwaukee Bucks,59,23,0.72,0,2021
@@ -25,8 +21,6 @@ Los Angeles Lakers,56,26,0.683,3,2021
 Denver Nuggets,55,27,0.671,4,2021
 Golden State Warriors,51,31,0.622,8,2021
 Boston Celtics,49,33,0.598,10,2021
-Miami Heat,46,36,0.561,13,2021
-Philadelphia 76ers,44,38,0.537,15,2021
 Phoenix Suns,40,42,0.488,19,2021
 Dallas Mavericks,43,39,0.524,16,2021
 Dannievic Eagles,62,20,0.756,0,2020
@@ -35,8 +29,6 @@ Milwaukee Bucks,60,22,0.732,2,2020
 Golden State Warriors,52,30,0.634,10,2020
 Boston Celtics,50,32,0.61,12,2020
 Denver Nuggets,55,27,0.671,7,2020
-Miami Heat,47,35,0.573,15,2020
-Philadelphia 76ers,44,38,0.537,18,2020
 Phoenix Suns,41,41,0.5,21,2020
 Dallas Mavericks,38,44,0.463,24,2020
 Milwaukee Bucks,60,22,0.732,0,2019
@@ -45,7 +37,5 @@ Los Angeles Lakers,52,30,0.634,8,2019
 Denver Nuggets,55,27,0.671,5,2019
 Golden State Warriors,49,33,0.598,11,2019
 Boston Celtics,48,34,0.585,12,2019
-Miami Heat,46,36,0.561,14,2019
-Philadelphia 76ers,45,37,0.549,15,2019
 Dallas Mavericks,41,41,0.5,19,2019
 Phoenix Suns,34,48,0.415,26,2019
