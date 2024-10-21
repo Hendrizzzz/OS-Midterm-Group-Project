@@ -11,12 +11,17 @@ start() {
   echo "Logging a game... " 
   echo ""
 
+  # Validate first if this team has completed 7 games
   homeTeam=$(readTeam "Enter home team: ")
+  echo "Home Team : $homeTeam"
   awayTeam=$(readTeam "Enter away team: ")
+  echo "Away Team : $awayTeam"
 
-  echo "home Team : $homeTeam"
-  echo "away Team : $awayTeam"
+  logPlayerStats "$homeTeam"
+  logPlayerStats "$awayTeam"
+  
 
+  
 }
 
 
@@ -26,43 +31,37 @@ readTeam() {
 
   # Loop until a valid team name is received
   while true; do
-        read -p "$1" teamName
-
-        if isTeamExists "$teamName"; then
-          break
-	else 
-	  echo "Error : Team does not exist. " >&2
-        fi
+    read -p "$1" inputtedTeamName
+    local originalName=$(getOriginalTeamName "$inputtedTeamName")
+  
+    if [ -n "$originalName" ]; then
+      echo "$originalName" # Return the original teamName 
+      break
+    else
+      echo "Error : Team does not exist. " >&2
+    fi
   done
-
-  printf '%s\n' "$teamName" # return the team name
 }
 
 
-# checks if the team is existing in the current season or not
-isTeamExists() {
-  local teamName="$1"
-  local lowerTeamName
-  local normalizedName
+# Check if the team exists and return the original name
+getOriginalTeamName() {
+  local inputTeamName="$1"
+  local normalizedInput=$(echo "$inputTeamName" | tr '[:upper:]' '[:lower:]' | sed 's/ //g')
 
-   # converts to lowercase and remove spaces
-    lowerTeamName=$(echo "$teamName" | tr '[:upper:]' '[:lower:]' | sed 's/ //g')
-
-    # Read the file and check each line
-    while IFS=, read -r name wins loses winLossPercentage gamesBehind yearLine; do
+  # Read the file line by line
+  while IFS=, read -r name _ _ _ _ yearLine; do
+    local normalizedName=$(echo "$name" | tr '[:upper:]' '[:lower:]' | sed 's/ //g')
     
-    # converts the current line's team name to lowercase and removes spaces
-    normalizedName=$(echo "$name" | tr '[:upper:]' '[:lower:]' | sed 's/ //g')
-
-    # check if the input teamname matches the current line team's name
-    if [[ "$normalizedName" == *"$lowerTeamName"* && "$yearLine" == "$currentYear" ]]; then
-      return 0
+    # Check if the input team name matches the current line's name and the year matches
+    if [[ "$normalizedName" == *"$normalizedInput"* && "$yearLine" == "$currentYear" ]]; then
+      echo "$name"  # Return the original team name
+      return
     fi
   done < "$teamsFilePath"
 
-  return 1  
+  echo ""  # Return empty if not found
 }
-
 
 
 start 
