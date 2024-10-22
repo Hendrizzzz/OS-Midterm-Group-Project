@@ -52,6 +52,12 @@ points_leaders_all_time() {
 points_leaders_per_season() {
     # Prompt the user for a year
     read -p "Enter the year (2020-2023): " input_year
+
+    while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" ]]; do
+        echo "Invalid input. Please enter a valid year."
+        read -p "Enter the year (2020-2023): " input_year
+    done
+
     echo "Players with the highest points for" $input_year
     # Output the header with alignment
     printf "%-30s %-25s %-10s %-5s\n" "Name" "Team" "Position" "Points"
@@ -99,7 +105,14 @@ ppg_leaders_all_time() {
 ppg_leaders_per_season() {
     # Prompt the user for a year
     read -p "Enter the year (2020-2023): " input_year
+
+    while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" ]]; do
+        echo "Invalid input. Please enter a valid year."
+        read -p "Enter the year (2020-2023): " input_year
+    done
+
     echo "Players with the highest PPG for" $input_year
+
     # Output the header with alignment
     printf "%-30s %-25s %-10s %-5s\n" "Name" "Team" "Position" "PPG"
 

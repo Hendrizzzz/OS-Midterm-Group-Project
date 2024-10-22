@@ -51,6 +51,12 @@ assists_leaders_all_time() {
 assists_leaders_per_season() {
     # Prompt the user for a year
     read -p "Enter the year (2020-2023): " input_year
+
+    while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" ]]; do
+        echo "Invalid input. Please enter a valid year."
+        read -p "Enter the year (2020-2023): " input_year
+    done
+    
     echo "Players with the highest assists for $input_year"
 
     # Output the header with alignment
@@ -100,6 +106,12 @@ apg_leaders_all_time() {
 apg_leaders_per_season() {
     # Prompt the user for a year
     read -p "Enter the year (2020-2023): " input_year
+
+    while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" && "$input_year" != "2024" ]]; do
+        echo "Invalid input. Please enter a valid year."
+        read -p "Enter the year (2020-2023): " input_year
+    done
+
     echo "Players with the highest APG for $input_year"
 
     # Output the header with alignment
