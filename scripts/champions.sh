@@ -1,8 +1,8 @@
 #!/bin/bash
 
 past_champions (){
-
-file_content=$(cat /home/ubuntu/OS-Midterm-Group-Project/databases/champions.csv)
+#Pa ayos nalang ung directory
+file_content=$(cat OS-Midterm-Group-Project/databases/champions.csv)
 echo "===================================================================="
 echo "  			  CHAMPIONS                               "
 echo "===================================================================="
