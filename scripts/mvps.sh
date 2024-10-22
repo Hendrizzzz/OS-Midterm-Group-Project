@@ -1,8 +1,8 @@
 #!/bin/bash
 
 past_mvp (){
-
-file_content=$(cat /home/ubuntu/OS-Midterm-Group-Project/databases/mvps.csv)
+#paayos nalng directory 
+file_content=$(cat OS-Midterm-Group-Project/databases/mvps.csv)
 echo "===================================================================="
 echo "                          MOST VALUABLE PLAYER                      "
 echo "===================================================================="
