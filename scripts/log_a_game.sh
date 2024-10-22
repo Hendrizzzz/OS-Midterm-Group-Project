@@ -6,9 +6,6 @@ declare -r teamsFilePath="$currentDirectory/../databases/teams.csv"
 declare -r playesFilePath="$currentDirectory/../databases/players.csv"
 declare -r gamesLogFilePath="$currentDirectory/../databases/current_season_games.csv"
 
-
-echo "$teamsFilePath"
-
 # the main method of the script
 start() {
   echo "Logging a game... " 
