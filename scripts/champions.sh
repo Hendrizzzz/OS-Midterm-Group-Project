@@ -6,7 +6,7 @@ echo "===================================================================="
 echo "  			  CHAMPIONS                               "
 echo "===================================================================="
 
-awk -F, '{ print $1, $2, $3, $4 }' /OS-Midterm-Group-Project/databases/champions.csv | column -s, -t 
+awk -F, '{ printf "%-20s %-10s %-10s %-10s\n", $1, $2, $3, $4 }' /OS-Midterm-Group-Project/databases/champions.csv | column -s, -t 
 echo "===================================================================="
 
 }
