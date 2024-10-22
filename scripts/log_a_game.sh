@@ -1,9 +1,10 @@
 #binibinbash
 
 declare -r currentYear="$1"
-declare -r teamsFilePath="teams.csv"
-declare -r playesFilePath="players.csv"
-declare -r gamesLogFilePath="current_season_games.csv"
+declare -r currentDirectory="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+declare -r teamsFilePath="$currentDirectory/../databases/teams.csv"
+declare -r playesFilePath="$currentDirectory/../databases/players.csv"
+declare -r gamesLogFilePath="$currentDirectory/../databases/current_season_games.csv"
 
 # the main method of the script
 start() {
