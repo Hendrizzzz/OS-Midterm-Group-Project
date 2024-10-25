@@ -153,7 +153,7 @@ logPlayerStats() {
 
 # Now read from the second line onwards
 while IFS=, read -r player_name team position total_points total_rebounds total_assists ppg rpg apg mvpRating games year status <&3; do
-    if [[ "$year" == "$current_year" && "$team" == "$team_name" ]]; then
+    if [[ "$year" == "$current_year" && "$team" == "$team_name" && "$status" == "ACTIVE" ]]; then
         # Get user input for points, rebounds, and assists
 	echo "$player_name" >&2
         points=$(getPlayerInput "points")
@@ -408,13 +408,17 @@ resetFiles() {
     
     # Reset the players
     next_year=$(("$currentYear" + 1))
-    # Read the file, filter by the specified year, and append new records without printing the header
+
+    # Read the file, filter by the specified year and ACTIVE status, and append new records without printing the header
     awk -F',' -v year="$currentYear" -v next_year="$next_year" '
-    NR > 1 && $12 == year && NF >= 12 { 
+    NR > 1 && $12 == year && $13 == "ACTIVE" && NF >= 12 { 
         printf "%s,%s,%s,0,0,0,0,0,0,0,0,%d,ACTIVE\n", $1, $2, $3, next_year 
     }
     ' "$playersFilePath" > temp.csv  # Output to temp.csv without the header
+
+    # Append the filtered records to the original file
     cat temp.csv >> "$playersFilePath"
+
 
     #Reset Teams
     next_year=$(("$currentYear" + 1))
