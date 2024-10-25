@@ -1,33 +1,41 @@
-TEAM NAME,WINS,LOSES,WIN-LOSS PERCENTAGE,GAMES BEHIND,YEAR,
-Dannievic Eagles,5,2,0.714,0,2023,
-Milwaukee Bucks,4,3,0.571,1,2023,
-Los Angeles Lakers,3,4,0.429,2,2023,
-Golden State Warriors,2,5,0.286,3,2023,
-Boston Celtics,3,4,0.429,2,2023,
-Denver Nuggets,4,3,0.571,1,2023,
-Phoenix Suns,2,5,0.286,3,2023,
-Dallas Mavericks,1,6,0.143,4,2023,
-Dannievic Eagles,4,3,0.571,2,2022,
-Milwaukee Bucks,3,4,0.429,3,2022,
-Los Angeles Lakers,6,1,0.857,0,2022,
-Golden State Warriors,5,2,0.714,1,2022,
-Boston Celtics,4,3,0.571,2,2022,
-Denver Nuggets,2,5,0.286,4,2022,
-Phoenix Suns,3,4,0.429,3,2022,
-Dallas Mavericks,2,5,0.286,4,2022,
-Dannievic Eagles,3,4,0.429,2,2021,
-Milwaukee Bucks,5,2,0.714,0,2021,
-Los Angeles Lakers,4,3,0.571,1,2021,
-Golden State Warriors,3,4,0.429,2,2021,
-Boston Celtics,5,2,0.714,1,2021,
-Denver Nuggets,2,5,0.286,4,2021,
-Phoenix Suns,4,3,0.571,2,2021,
-Dallas Mavericks,1,6,0.143,5,2021,
-Dannievic Eagles,5,2,0.714,0,2020,
-Milwaukee Bucks,4,3,0.571,1,2020,
-Los Angeles Lakers,3,4,0.429,2,2020,
-Golden State Warriors,6,1,0.857,0,2020,
-Boston Celtics,2,5,0.286,4,2020,
-Denver Nuggets,4,3,0.571,1,2020,
-Phoenix Suns,2,5,0.286,4,2020,
-Dallas Mavericks,3,4,0.429,2,2020,
+TEAM NAME,WINS,LOSES,WIN-LOSS PERCENTAGE,GAMES,YEAR
+Dannievic Eagles,5,2,0.714,7,2020
+Milwaukee Bucks,4,3,0.571,7,2020
+Los Angeles Lakers,3,4,0.429,7,2020
+Golden State Warriors,6,1,0.857,7,2020
+Boston Celtics,2,5,0.286,7,2020
+Denver Nuggets,4,3,0.571,7,2020
+Phoenix Suns,2,5,0.286,7,2020
+Dallas Mavericks,3,4,0.429,7,2020
+Dannievic Eagles,3,4,0.429,7,2021
+Milwaukee Bucks,5,2,0.714,7,2021
+Los Angeles Lakers,4,3,0.571,7,2021
+Golden State Warriors,3,4,0.429,7,2021
+Boston Celtics,5,2,0.714,7,2021
+Denver Nuggets,2,5,0.286,7,2021
+Phoenix Suns,4,3,0.571,7,2021
+Dallas Mavericks,1,6,0.143,7,2021
+Dannievic Eagles,4,3,0.571,7,2022
+Milwaukee Bucks,3,4,0.429,7,2022
+Los Angeles Lakers,6,1,0.857,7,2022
+Golden State Warriors,5,2,0.714,7,2022
+Boston Celtics,4,3,0.571,7,2022
+Denver Nuggets,2,5,0.286,7,2022
+Phoenix Suns,3,4,0.429,7,2022
+Dallas Mavericks,2,5,0.286,7,2022
+Dannievic Eagles,5,2,0.714,7,2023
+Milwaukee Bucks,4,3,0.571,7,2023
+Los Angeles Lakers,3,4,0.429,7,2023
+Golden State Warriors,2,5,0.286,7,2023
+Boston Celtics,3,4,0.429,7,2023
+Denver Nuggets,4,3,0.571,7,2023
+Phoenix Suns,2,5,0.286,7,2023
+Dallas Mavericks,1,6,0.143,7,2023
+Dannievic Eagles,0,0,0.000,7,2024
+Milwaukee Bucks,0,0,0.000,7,2024
+Los Angeles Lakers,0,0,0.000,7,2024
+Golden State Warriors,0,0,0.000,7,2024
+Boston Celtics,0,0,0.000,7,2024
+Denver Nuggets,0,0,0.000,7,2024
+Phoenix Suns,0,0,0.000,7,2024
+Dallas Mavericks,0,0,0.000,7,2024
