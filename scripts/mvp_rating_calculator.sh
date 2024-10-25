@@ -1,17 +1,22 @@
-#!/bin/bash/
-#mvp rating calculator
+calculate_mvp_rating() {
+  local points="$1"
+  local rebounds="$2"
+  local assists="$3"
+  local games="$4"
 
-mvp_rating_calculator(){
-recordedPoint=$(echo "$1 * 0.5" | bc)
-recordedRebounds=$(echo "$2 * 0.3" | bc)
-recordedAssist=$(echo "$3 * 0.2" | bc)
-games=$4 
+  # Calculate recorded points, rebounds, and assists using awk
+  recorded_points=$(awk "BEGIN {print $points * 0.5}")
+  recorded_rebounds=$(awk "BEGIN {print $rebounds * 0.3}")
+  recorded_assists=$(awk "BEGIN {print $assists * 0.2}")
 
-rating=$(echo "(recorderPoint + recordedRebound + recourdedAssist) / games" | bc )
-echo "$rating"
+  # Calculate total points
+  total_points=$(awk "BEGIN {print $recorded_points + $recorded_rebounds + $recorded_assists}")
+
+  # Calculate MVP rating
+  mvp_rating=$(awk "BEGIN {print $total_points / $games}")
+
+  echo "$mvp_rating"
 }
 
-result=$(mvp_rating_calculator "$1" "$2" "$3" "$4")
+result=$(calculate_mvp_rating "$1" "$2" "$3" "$4")
 echo "$result"
-
-

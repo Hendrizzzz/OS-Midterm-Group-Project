@@ -15,7 +15,7 @@ declare -r viewGames="$currentDirectory/view_games.sh"
 declare -r playerStatus="$currentDirectory/active_or_retired.sh"
 
 # currentYear=getCurrentYear in the database
-currentYear=2023 # needs to have storage for the currentYear (brute force solution, read the 2nd line in the players.csv)
+currentYear=$(bash get_current_year.sh)
 
 # Menu
 show_menu() {
