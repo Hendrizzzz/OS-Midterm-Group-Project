@@ -1,4 +1,4 @@
-Giannis Antetokounmpo,Milwaukee Bucks,PF,0,0,0,0,0,0,0,0,2024,ACTIVE
+NAME,TEAM,POSITION,POINTS,REBOUNDS,ASSIST,PPG,RPG,APG,MVP RATING,GAMES,YEAR,STATUS
 Thanasis Antetokounmpo,Milwaukee Bucks,SF,0,0,0,0,0,0,0,0,2024,ACTIVE
 Malik Beasley,Milwaukee Bucks,SG,0,0,0,0,0,0,0,0,2024,ACTIVE
 MarJon Beauchamp,Milwaukee Bucks,SG,0,0,0,0,0,0,0,0,2024,ACTIVE
@@ -6,22 +6,22 @@ Patrick Beverley,Milwaukee Bucks,PG,0,0,0,0,0,0,0,0,2024,ACTIVE
 Marques Bolden,Milwaukee Bucks,C,0,0,0,0,0,0,0,0,2024,ACTIVE
 Andre Jackson Jr.,Milwaukee Bucks,SG,0,0,0,0,0,0,0,0,2024,ACTIVE
 Damian Lillard,Milwaukee Bucks,PG,0,0,0,0,0,0,0,0,2024,ACTIVE
-LeBron James,Los Angeles Lakers,SF,30,2,2,15.00,1.00,1.00,8,2,2024,ACTIVE
-Anthony Davis,Los Angeles Lakers,PF,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-D'Angelo Russell,Los Angeles Lakers,PG,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-Austin Reaves,Los Angeles Lakers,SG,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-Rui Hachimura,Los Angeles Lakers,PF,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-Jaxson Hayes,Los Angeles Lakers,C,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-Taurean Prince,Los Angeles Lakers,SF,2,11,11,1.00,5.50,5.50,3.25,2,2024,ACTIVE
-Gabe Vincent,Los Angeles Lakers,PG,2,11,11,1.00,5.50,5.50,3.25,2,2024,ACTIVE
-Stephen Curry,Golden State Warriors,PG,30,2,2,15.00,1.00,1.00,8,2,2024,ACTIVE
-Klay Thompson,Golden State Warriors,SG,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-Draymond Green,Golden State Warriors,PF,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-Andrew Wiggins,Golden State Warriors,SF,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-Chris Paul,Golden State Warriors,PG,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-Kevon Looney,Golden State Warriors,C,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-Jonathan Kuminga,Golden State Warriors,SF,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
-Gary Payton II,Golden State Warriors,SG,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE
+LeBron James,Los Angeles Lakers,SF,131,4,4,32.75,1.00,1.00,16.875,4,2024,ACTIVE
+Anthony Davis,Los Angeles Lakers,PF,4,4,4,1.00,1.00,1.00,1,4,2024,ACTIVE
+D'Angelo Russell,Los Angeles Lakers,PG,4,4,4,1.00,1.00,1.00,1,4,2024,ACTIVE
+Austin Reaves,Los Angeles Lakers,SG,4,4,4,1.00,1.00,1.00,1,4,2024,ACTIVE
+Rui Hachimura,Los Angeles Lakers,PF,4,4,23,1.00,1.00,5.75,1.95,4,2024,ACTIVE
+Jaxson Hayes,Los Angeles Lakers,C,4,5,4,1.00,1.25,1.00,1.075,4,2024,ACTIVE
+Taurean Prince,Los Angeles Lakers,SF,4,13,13,1.00,3.25,3.25,2.125,4,2024,ACTIVE
+Gabe Vincent,Los Angeles Lakers,PG,4,13,13,1.00,3.25,3.25,2.125,4,2024,ACTIVE
+Stephen Curry,Golden State Warriors,PG,32,103,4,8.00,25.75,1.00,11.925,4,2024,ACTIVE
+Klay Thompson,Golden State Warriors,SG,4,4,4,1.00,1.00,1.00,1,4,2024,ACTIVE
+Draymond Green,Golden State Warriors,PF,4,4,4,1.00,1.00,1.00,1,4,2024,ACTIVE
+Andrew Wiggins,Golden State Warriors,SF,113,4,4,28.25,1.00,1.00,14.625,4,2024,ACTIVE
+Chris Paul,Golden State Warriors,PG,4,4,4,1.00,1.00,1.00,1,4,2024,ACTIVE
+Kevon Looney,Golden State Warriors,C,4,4,4,1.00,1.00,1.00,1,4,2024,ACTIVE
+Jonathan Kuminga,Golden State Warriors,SF,4,4,4,1.00,1.00,1.00,1,4,2024,ACTIVE
+Gary Payton II,Golden State Warriors,SG,4,4,4,1.00,1.00,1.00,1,4,2024,ACTIVE
 Jayson Tatum,Boston Celtics,SF,0,0,0,0,0,0,0,0,2024,ACTIVE
 Jaylen Brown,Boston Celtics,SF,0,0,0,0,0,0,0,0,2024,ACTIVE
 Kristaps Porzingis,Boston Celtics,C,0,0,0,0,0,0,0,0,2024,ACTIVE
@@ -62,4 +62,4 @@ Jim Hendricks Bag-eo,Dannievic Eagles,SF,0,0,0,0,0,0,0,0,2024,ACTIVE
 Joeffrey Carani,Dannievic Eagles,SG,0,0,0,0,0,0,0,0,2024,ACTIVE
 Manny Pacquio,Dannievic Eagles,PG,0,0,0,0,0,0,0,0,2024,ACTIVE
 Daniel Padilla,Dannievic Eagles,PG,0,0,0,0,0,0,0,0,2024,ACTIVE
-Welp,Golden State Warriors,SF,0,0,0,0.00,0.00,0.00,0.00,0,2024,ACTIVE
+Welp,Golden State Warriors,SF,2,2,2,1.00,1.00,1.00,1,2,2024,ACTIVE

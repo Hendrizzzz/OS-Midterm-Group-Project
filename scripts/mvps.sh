@@ -2,7 +2,7 @@
 
 past_mvp (){
 #paayos nalng directory 
-file_content=$(cat OS-Midterm-Group-Project/databases/mvps.csv)
+file_content=$(cat ../databases/mvps.csv)
 echo "===================================================================="
 echo "                          MOST VALUABLE PLAYER                      "
 echo "===================================================================="

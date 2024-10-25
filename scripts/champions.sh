@@ -2,7 +2,7 @@
 
 past_champions (){
 #Pa ayos nalang ung directory
-file_content=$(cat OS-Midterm-Group-Project/databases/champions.csv)
+file_content=$(cat ../databases/champions.csv)
 echo "===================================================================="
 echo "  			  CHAMPIONS                               "
 echo "===================================================================="
