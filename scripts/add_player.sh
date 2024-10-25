@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FILE="players.csv"
+FILE="../databases/players.csv"
 
 # Function to add a player
 add_player() {

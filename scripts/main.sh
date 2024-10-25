@@ -3,15 +3,15 @@ declare -r logGame="$currentDirectory/log_a_game.sh"
 declare -r addPlayer="$currentDirectory/add_player.sh"
 declare -r deletePlayer="$currentDirectory/delete_player.sh"
 declare -r retirePlayer="$currentDirectory/retire_player.sh"
-declare -r teamStandings="$currentDirectory/team_standings.sh"
+declare -r teamStandings="$currentDirectory/current_standings.sh"
 declare -r mvpLadder="$currentDirectory/mvp_ladder.sh"
 declare -r pointsLeaders="$currentDirectory/points_or_ppg_leaders.sh"
 declare -r assistsLeaders="$currentDirectory/assists_or_apg_leaders.sh"
 declare -r reboundsLeader="$currentDirectory/rebounds_or_rpg_leaders.sh"
 declare -r displayChampions="$currentDirectory/champions.sh"
 declare -r displayMvps="$currentDirectory/mvps.sh"
-declare -r searchAPlayer="$currentDirectory/search_a_player.sh"
-declare -r viewGames="$currentDirectory/view_games.sh"
+declare -r searchAPlayer="$currentDirectory/search_player.sh"
+declare -r viewGames="$currentDirectory/view_games_this_season.sh"
 declare -r playerStatus="$currentDirectory/active_or_retired.sh"
 
 # currentYear=getCurrentYear in the database
@@ -59,8 +59,8 @@ while true; do
         2) bash "$addPlayer" ;;
         3) bash "$deletePlayer" ;;
         4) bash "$retirePlayer" ;;
-        5) bash "$teamStandings" ;;
-        6) bash "$mvpLadder" ;;
+        5) bash "$teamStandings" "$currentYear" ;;
+        6) bash "$mvpLadder" "$currentYear" ;;
         7) bash "$pointsLeaders" ;;
         8) bash "$assistsLeaders" ;;
         9) bash "$reboundsLeaders" ;;

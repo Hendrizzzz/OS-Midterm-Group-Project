@@ -70,10 +70,10 @@ fi
   # Determine the winner
   if [ "$homeTeamScore" -gt "$awayTeamScore" ]; then
     winner="$homeTeam"
-  elif [ "$awayTeamScore" -gt "$homeTeamScore" ]; then
-    winner="$awayTeam"
+    loser="$awayTeam"
   else
-    winner="Tie"
+    winner="$awayTeam"
+    loser="$homeTeam"
   fi
 
   # Display the final scores
@@ -84,6 +84,8 @@ fi
     echo "Winner: $winner"
 
   echo "$homeTeam,$awayTeam,$homeTeamScore,$awayTeamScore,$winner" >> "$gamesLogFilePath"
+  updateStandings "$winner" "winner" "$currentYear"
+  updateStandings "$loser" "loser" "$currentYear"
 
   echo "Game logged successfully!"
 }
@@ -420,7 +422,7 @@ resetFiles() {
     # Read the file, filter by the specified year, and append new records
     awk -F',' -v year="$currentYear" -v next_year="$next_year" '
     NR > 1 && $6 == year { 
-        printf "%s,0,0,0.000,%s,%d\n", $1, $5, next_year 
+        printf "%s,0,0,0.000,0,%d\n", $1, next_year 
     }
     ' "$teamsFilePath" >> "$teamsFilePath"  # Append to the same file
 
@@ -433,7 +435,46 @@ updateCurrentYear() {
 	echo "$currentYear" > ../databases/current_year.txt
 }
 
+updateStandings() {
+  local team="$1"
+  local status="$2"
+  local currentYear="$3"
+  
+  # Define the CSV file path
+  local file="$teamsFilePath"
+  local tempFile="../databases/temp.csv"  # Use the existing temp file name
 
+  # Check if the team exists in the CSV for the current year
+  if grep -q "^$team,[^,]*,[^,]*,[^,]*,[^,]*,$currentYear$" "$file"; then
+    # Update wins or losses based on status and use temp.csv for read and write
+    awk -F, -v team="$team" -v year="$currentYear" -v status="$status" '
+    BEGIN { OFS = "," }
+    {
+      if ($1 == team && $6 == year) {
+        if (status == "loser") {
+          $3++;  # Increment losses
+        } else {
+          $2++;  # Increment wins
+        }
+        $5++;  # Increment games
+        # Calculate the win-loss percentage
+        if ($5 > 0) {
+          $4 = ($2 / $5);  # Recalculate win-loss percentage
+        } else {
+          $4 = 0.000;  # Handle case where games is 0
+        }
+      }
+      print  # Print the updated line
+    } ' "$file" > "$tempFile"  # Write output to temp.csv
+    
+    # Replace the original file with updated data from temp.csv
+    mv "$tempFile" "$file"
+    
+    echo "Updated standings for $team in $currentYear."
+  else
+    echo "Team $team not found for year $currentYear."
+  fi
+}
 
 
 

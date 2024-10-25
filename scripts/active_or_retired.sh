@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the data file
-data_file="players.csv"
+data_file="../databases/players.csv"
 
 # Function to count active players
 count_active_players() {

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 delete_player () {
-    file="/OS-Midterm-Group-Project/databases/players.csv"
+    file="../databases/players.csv"
     
     # Check if the file exists
     if [[ ! -f "$file" ]]; then
