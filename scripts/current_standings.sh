@@ -2,7 +2,7 @@
 
 current_standing() {
     echo "============================================================="
-    echo "                           CURRENT STANDINGS                           "
+    echo "                     CURRENT STANDINGS                           "
     echo "============================================================="
 
     # Print the header

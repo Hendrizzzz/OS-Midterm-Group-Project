@@ -53,6 +53,8 @@ while true; do
     clear
     show_menu
     read -p "Please choose an option: " option
+	echo ""	
+	echo ""
 
     case $option in
         1) bash "$logGame" "$currentYear" ;;
@@ -73,5 +75,7 @@ while true; do
         *) echo "Invalid option. Please try again." ;;
     esac
 
-    read -p "Press Enter to continue..."
+    	echo ""
+	echo ""
+	read -p "Press Enter to continue..."
 done
