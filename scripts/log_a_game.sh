@@ -63,9 +63,9 @@ fi
 
   # Log stats and calculate scores for both teams
   homeTeamScore=$(logPlayerStats "$homeTeam")
-  echo "home Team Score in start method: $homeTeamScore"
+  echo "home Team Score: $homeTeamScore"
   awayTeamScore=$(logPlayerStats "$awayTeam")
-  echo "away team score in start method: $awayTeamScore"
+  echo "away team score: $awayTeamScore"
 
   # Determine the winner
   if [ "$homeTeamScore" -gt "$awayTeamScore" ]; then
@@ -93,24 +93,26 @@ fi
 
 # reads a team
 readTeam() {
-local originalName
-  # Loop until a valid team name is received
-  while true; do
-    read -r -p "$1" inputtedTeamName
-    originalName=$(getOriginalTeamName "$inputtedTeamName")
+    local originalName
+    # Loop until a valid team name is received
+    while true; do
+        read -r -p "$1" inputtedTeamName
+        originalName=$(getOriginalTeamName "$inputtedTeamName")
 
-    if [ -n "$originalName" ]; then
-        if teamPlayed7Matches "$homeTeam"; then 
-            echo "The $homeTeam has already played 7 matches. Please enter another team."
-        else 
-            echo "$originalName" # Return the original teamName 
-            break
+        if [ -n "$originalName" ]; then
+            teamPlayed7Matches "$originalName"
+            if [ $? -eq 0 ]; then 
+                echo "The $originalName has already played 7 matches. Please enter another team." >&2
+            else 
+                echo "$originalName" # Return the original teamName 
+                break
+            fi
+        else
+            echo "Error: Team does not exist." >&2
         fi
-    else
-        echo "Error : Team does not exist. " >&2
-    fi
-  done
+    done
 }
+
 
 
 
@@ -219,30 +221,26 @@ getPlayerInput() {
 
 teamPlayed7Matches() {
     local team_name=$1
-    local match_count=0
+    local found_match=1  # Default to 1 (not found)
 
     # Check if the CSV file exists
-    if [ ! -f "$gamesLogFilePath" ]; then
-        echo "Error: current_season_games.csv not found."
+    if [ ! -f "$teamsFilePath" ]; then
+        echo "Error: $teamsFilePath not found."
         return 1
     fi
 
     # Read the CSV file, skipping the header (first line)
-    while IFS=, read -r homeTeam awayTeam homeTeamScore awayTeamScore winner; do
-        # Check if the team is the home or away team and increase the count
-        if [[ "$homeTeam" == "$team_name" || "$awayTeam" == "$team_name" ]]; then
-            match_count=$((match_count + 1))
+    while IFS=, read -r TEAM_NAME WINS LOSES WIN_LOSS_PERCENTAGE GAMES YEAR; do
+        # Check if the team matches and has exactly 7 games
+        if [[ "$TEAM_NAME" == "$team_name" && "$GAMES" == "7" && "$currentYear" == "$YEAR" ]]; then
+            found_match=0  # Set to 0 (true) if found
+            break  # Exit early if a match is found
         fi
+    done < <(tail -n +2 "$teamsFilePath")  # Skip the header
 
-        # If the team has played 7 matches, exit early
-        if [ "$match_count" -eq 7 ]; then
-            return 0
-        fi
-    done < <(tail -n +2 "$gamesLogFilePath")  
-
-    # If the team has not played 7 matches, return 1
-    return 1
+    return "$found_match"
 }
+
 
 
 # Function to check if all games have been played (56 games in total)

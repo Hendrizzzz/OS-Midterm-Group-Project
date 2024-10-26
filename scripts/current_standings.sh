@@ -9,9 +9,9 @@ current_standing() {
     printf "%-30s %-5s %-5s %-12s %5s\n" "TEAM" "WINS" "LOSS" "WIN-LOSS %" "GAMES"
     echo "============================================================="
 
-    # Use grep to filter for the year 2021, then sort by the wins column (2nd field) in descending order,
-    # and format the output with awk.
-    grep -h "$1" ../databases/teams.csv | sort -t, -k2,2nr | awk -F, '{
+    # Use grep to filter for the specified year, then sort by wins (2nd field) in descending order,
+    # and by losses (3rd field) in ascending order, then format the output with awk.
+    grep -h "$1" ../databases/teams.csv | sort -t, -k2,2nr -k3,3n | awk -F, '{
         printf "%-30s %-5s %-5s %-12s %-5s\n", $1, $2, $3, $4, $5
     }'
 
