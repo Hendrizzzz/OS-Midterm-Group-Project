@@ -1,6 +1,7 @@
 #!/bin/bash
 
 FILE="../databases/players.csv"
+CURRENT_YEAR=$(date +"%Y")
 
 # Function to search for a player
 search_player() {
@@ -8,11 +9,11 @@ search_player() {
     read -p "Enter the player's name to search for: " player_name
     echo "Searching for $player_name..."
 
-    # Search for the player in the CSV
-    player_info=$(grep -i "^$player_name" "$FILE")
+    # Search for the player in the CSV for the current year
+    player_info=$(grep -i "^$player_name" "$FILE" | grep ",$CURRENT_YEAR,")
 
     if [[ -n "$player_info" ]]; then
-        # Display general player information (this assumes specific columns)
+        # Display current year's stats
         team=$(echo "$player_info" | cut -d ',' -f2)
         position=$(echo "$player_info" | cut -d ',' -f3)
         ppg=$(echo "$player_info" | cut -d ',' -f7)
@@ -31,14 +32,16 @@ search_player() {
         read -p "Do you want to see full stats (y/n)? " confirm
         if [[ "$confirm" == "y" ]]; then
             echo "Full stats for $player_name:"
-            echo -e "Name\t\tTeam\t\tPosition\tPoints\tRebounds\tAssists\tPPG\tRPG\tAPG\tMVP Rating\tGames\tYear\tStatus"
+            printf "%-15s %-20s %-10s %-8s %-10s %-10s %-5s %-5s %-5s %-12s %-6s %-6s %s\n" \
+                "Name" "Team" "Position" "Points" "Rebounds" "Assists" "PPG" "RPG" "APG" "MVP Rating" "Games" "Year" "Status"
             grep -i "^$player_name" "$FILE" | while IFS=',' read -r name team position points rebounds assists ppg rpg apg mvprating games year status
             do
-                printf "%-15s %-20s %-10s %-8s %-10s %-10s %-5s %-5s %-5s %-10s %-6s %-6s %s\n" "$name" "$team" "$position" "$points" "$rebounds" "$assists" "$ppg" "$rpg" "$apg" "$mvprating" "$games" "$year" "$status"
+                printf "%-15s %-20s %-10s %-8s %-10s %-10s %-5s %-5s %-5s %-12s %-6s %-6s %s\n" \
+                    "$name" "$team" "$position" "$points" "$rebounds" "$assists" "$ppg" "$rpg" "$apg" "$mvprating" "$games" "$year" "$status"
             done
         fi
     else
-        echo "Player not found."
+        echo "Player not found or no stats available for the current year."
     fi
 }
 
