@@ -2,15 +2,16 @@
 
 # Define the data file
 data_file="../databases/players.csv"
+currentYear=$(bash get_current_year.sh)
 
 # Function to count active players
 count_active_players() {
     local active_count=0
-    read -p "Enter the year (2020-2024): " input_year
+    read -p "Enter the year (2020-$currentYear): " input_year
 
-    while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" && "$input_year" != "2024" ]]; do
+    while [[ "$input_year" -gt "$currentYear" && "$inputYear" -lt "2020" ]]; do
     echo "Invalid input. Please enter a valid year."
-    read -p "Enter the year (2020-2024): " input_year
+    read -p "Enter the year (2020-$currentYear): " input_year
     done
 
     # Read the CSV file, skipping the header
@@ -33,7 +34,7 @@ count_retired_players() {
     local retired_count=0
     read -p "Enter the year (2020-2024): " input_year
 
-    while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" && "$input_year" != "2024" ]]; do
+    while [[ "$input_year" -gt "$currentYear" && "$inputYear" -lt "2020" ]]; do
         echo "Invalid input. Please enter a valid year."
         read -p "Enter the year (2020-2024): " input_year
     done
