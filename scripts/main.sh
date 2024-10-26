@@ -15,7 +15,9 @@ declare -r viewGames="$currentDirectory/view_games_this_season.sh"
 declare -r playerStatus="$currentDirectory/active_or_retired.sh"
 
 # currentYear=getCurrentYear in the database
-currentYear=$(bash get_current_year.sh)
+getYear() {
+    currentYear=$(bash get_current_year.sh)
+}
 
 # Menu
 show_menu() {
@@ -51,6 +53,7 @@ show_menu() {
 # Main loop
 while true; do
     clear
+    getYear
     show_menu
     read -p "Please choose an option: " option
 	echo ""	

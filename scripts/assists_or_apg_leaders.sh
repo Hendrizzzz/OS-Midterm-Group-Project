@@ -1,6 +1,6 @@
 #!/bin/bash
 
-data_file="players.csv"
+data_file="../databases/players.csv"
 
 # Check if the CSV file exists
 if [ ! -f "$data_file" ]; then
@@ -9,6 +9,7 @@ if [ ! -f "$data_file" ]; then
 fi
 
 assists_leaders_all_time() {
+    echo ""
     # Declare an associative array to hold total assists per player
     declare -A player_assists
 
@@ -51,6 +52,7 @@ assists_leaders_all_time() {
 assists_leaders_per_season() {
     # Prompt the user for a year
     read -p "Enter the year (2020-2023): " input_year
+    echo ""
 
     while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" ]]; do
         echo "Invalid input. Please enter a valid year."
@@ -106,6 +108,7 @@ apg_leaders_all_time() {
 apg_leaders_per_season() {
     # Prompt the user for a year
     read -p "Enter the year (2020-2023): " input_year
+    echo ""
 
     while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" && "$input_year" != "2024" ]]; do
         echo "Invalid input. Please enter a valid year."
@@ -147,8 +150,8 @@ while true; do
     clear
 
     echo "Please choose from the choices below: "
-    echo "1. Assists leaders this season"
-    echo "2. APG leaders this season"
+    echo "1. Assists leaders in a single season"
+    echo "2. APG leaders in a single season"
     echo "3. Assists all-time leaders"
     echo "4. APG all time leaders"
     echo "5. Exit"
@@ -168,5 +171,6 @@ while true; do
         *) echo "Invalid choice." ;;
     esac
     
+    echo ""
     read -p "Press ENTER to continue."
 done

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variable to hold the name of the data file
-data_file="players.csv"
+data_file="../databases/players.csv"
 
 # Check if the CSV file exists
 if [ ! -f "$data_file" ]; then
@@ -10,6 +10,7 @@ if [ ! -f "$data_file" ]; then
 fi
 
 rebounds_leaders_all_time() {
+    echo ""
     # Declare an associative array to hold total rebounds per player
     declare -A player_rebounds
 
@@ -52,6 +53,7 @@ rebounds_leaders_all_time() {
 rebounds_leaders_per_season() {
     # Prompt the user for a year
     read -p "Enter the year (2020-2023): " input_year
+    echo ""
 
     while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" ]]; do
         echo "Invalid input. Please enter a valid year."
@@ -90,6 +92,7 @@ rebounds_leaders_per_season() {
 }
 
 rpg_leaders_all_time() {
+    echo ""
     echo "Players with the highest RPG (All Time)"
     printf "%-25s %-25s %-12s %-5s\n" "Name" "Team" "Position" "RPG"
 
@@ -107,6 +110,7 @@ rpg_leaders_all_time() {
 rpg_leaders_per_season() {
     # Prompt the user for a year
     read -p "Enter the year (2020-2023): " input_year
+    echo ""
 
     while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" ]]; do
         echo "Invalid input. Please enter a valid year."
@@ -148,8 +152,8 @@ while true; do
     clear
 
     echo "Please choose from the choices below: "
-    echo "1. Rebounds leaders this season"
-    echo "2. RPG leaders this season"
+    echo "1. Rebounds leaders in a single season"
+    echo "2. RPG leaders in a single season"
     echo "3. Rebounds all-time leaders"
     echo "4. RPG all time leaders"
     echo "5. Exit"
@@ -169,5 +173,6 @@ while true; do
         *) echo "Invalid choice." ;;
     esac
     
+    echo ""
     read -p "Press ENTER to continue."
 done

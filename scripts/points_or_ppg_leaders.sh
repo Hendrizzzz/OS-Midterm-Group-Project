@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Variable to hold the name of the data file
-data_file="players.csv"
+data_file="../databases/players.csv"
 
 # Check if the CSV file exists
 if [ ! -f "$data_file" ]; then
@@ -10,6 +10,7 @@ if [ ! -f "$data_file" ]; then
 fi
 
 points_leaders_all_time() {
+    echo ""
     # Declare an associative array to hold total points per player
     declare -A player_points
 
@@ -52,6 +53,7 @@ points_leaders_all_time() {
 points_leaders_per_season() {
     # Prompt the user for a year
     read -p "Enter the year (2020-2023): " input_year
+    echo ""
 
     while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" ]]; do
         echo "Invalid input. Please enter a valid year."
@@ -89,6 +91,7 @@ points_leaders_per_season() {
 }
 
 ppg_leaders_all_time() {
+    echo ""
     echo "Players with the highest PPG (All Time)"
     printf "%-25s %-25s %-11s %-5s\n" "Name" "Team" "Position" "PPG"
     # Read the CSV file, extract names, teams, positions, and PPG, sort, and display the top 10
@@ -105,6 +108,7 @@ ppg_leaders_all_time() {
 ppg_leaders_per_season() {
     # Prompt the user for a year
     read -p "Enter the year (2020-2023): " input_year
+    echo ""
 
     while [[ "$input_year" != "2020" && "$input_year" != "2021" && "$input_year" != "2022" && "$input_year" != "2023" ]]; do
         echo "Invalid input. Please enter a valid year."
@@ -146,8 +150,8 @@ while true; do
     clear
 
     echo "Please choose from the choices below: "
-    echo "1. Points leaders this season"
-    echo "2. PPG leaders this season"
+    echo "1. Points leaders in a single season"
+    echo "2. PPG leaders in a single season"
     echo "3. Points all-time leaders"
     echo "4. PPG all time leaders"
     echo "5. Exit"
@@ -167,5 +171,6 @@ while true; do
         *) echo "Invalid choice." ;;
     esac
     
+    echo ""    
     read -p "Press ENTER to continue."
 done

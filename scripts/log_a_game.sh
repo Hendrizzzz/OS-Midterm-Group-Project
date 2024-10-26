@@ -8,7 +8,6 @@ declare -r championsFilePath="$currentDirectory/../databases/champions.csv"
 
 # the main method of the script
 start() {
-  echo "$currentYear"
 # Check if the season is complete
 if isSeasonComplete; then 
     echo "The $currentYear season is already complete."
@@ -52,6 +51,7 @@ fi
 
   echo "Logging a game... " 
   echo "Only the top 4 teams will advance to the playoffs!"
+  echo "Year: $currentYear"
   echo ""
 
   # Validate if both teams have completed 7 games before proceeding
@@ -419,22 +419,17 @@ resetFiles() {
     # Append the filtered records to the original file
     cat temp.csv >> "$playersFilePath"
 
-
-    #Reset Teams
-    next_year=$(("$currentYear" + 1))
-
     # Read the file, filter by the specified year, and append new records
     awk -F',' -v year="$currentYear" -v next_year="$next_year" '
     NR > 1 && $6 == year { 
         printf "%s,0,0,0.000,0,%d\n", $1, next_year 
     }
     ' "$teamsFilePath" >> "$teamsFilePath"  # Append to the same file
-
 }
 
 
 updateCurrentYear() {
-	local old_current_year=$(cat ../databases/current_year.txt)
+	old_current_year=$(cat ../databases/current_year.txt)
 	currentYear=$((old_current_year + 1))
 	echo "$currentYear" > ../databases/current_year.txt
 }
