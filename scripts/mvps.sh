@@ -1,7 +1,7 @@
 #!/bin/bash
 
 past_mvp (){
-#paayos nalng directory 
+ 
 file_content=$(cat ../databases/mvps.csv)
 echo "===================================================================="
 echo "                          MOST VALUABLE PLAYER                      "
