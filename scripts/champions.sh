@@ -1,7 +1,7 @@
 #!/bin/bash
 
 past_champions (){
-#Pa ayos nalang ung directory
+
 file_content=$(cat ../databases/champions.csv)
 echo "========================================================================================="
 echo "  			  CHAMPIONS                               "
