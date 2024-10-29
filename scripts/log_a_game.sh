@@ -42,6 +42,7 @@ fi
         [yY])
             echo "Proceeding to playoffs..."
             proceedToPlayoffs
+	    return
             ;;
         *)
             return
@@ -238,12 +239,12 @@ teamPlayed7Matches() {
         fi
     done < <(tail -n +2 "$teamsFilePath")  # Skip the header
 
-    return "$found_match"
+    return "$found_match" 
 }
 
 
 
-# Function to check if all games have been played (56 games in total)
+# Function to check if all games have been played (56 games in total) but this calculation counts each game twice (once for each team involved), so we need to divide by 2
 isRegularSeasonComplete() {
     game_count=0
 
@@ -255,8 +256,8 @@ isRegularSeasonComplete() {
         fi
     done < <(tail -n +2 "$gamesLogFilePath") 
 
-    # Check if the game count equals 56
-    if [ "$game_count" -eq 56 ]; then
+    # Check if the game count equals 28
+    if [ "$game_count" -eq 28 ]; then
         return 0  # Regular season complete
     else
         return 1  # Regular season not complete
@@ -269,11 +270,10 @@ proceedToPlayoffs() {
     echo "Welcome to the Post Season (Playoffs) where teams battle it out to win the championship!"
     echo "Note that all matchups are best of 1, so the winner of each matchup will advance to the next round."
 
-    bash current_standings.sh
+    bash current_standings.sh "$currentYear"
 
-    # Capture the output of the pipeline into an array
     mapfile -t topTeams < <(
-        grep "2022" "$teamsFilePath" | sort -t, -k2,2nr | head -n 4 | awk -F, '{print $1}'
+        grep "$currentYear" "$teamsFilePath" | sort -t, -k2,2nr -k3,3n | head -n 4 | awk -F, '{print $1}'
     )
 
     # Assign the top four seeds, using 'None' if not enough teams are found
@@ -357,35 +357,19 @@ proceedToPlayoffs() {
 
 
 announceMVP() {
-    # Read the CSV file and take the top 1 player
-    top_players=$(tail -n +2 "$playersFilePath" | awk -F',' -v year="$1" '$12 == year' | sort -t ',' -k 10 -nr | head -n 1)
+    # Read the CSV file, filter by year, sort by MVP rating (10th column) in descending order, and get the top player
+    top_player=$(tail -n +2 "$playersFilePath" | awk -F',' -v year="$1" '$12 == year' | sort -t ',' -k10,10 -nr | head -n 1)
     
-    # Initialize variables for player details
-    player1=""
-    player1_team=""
-    player1_position=""
-    
-    # Initialize a counter
-    counter=1
-    
-    # Loop through the top player and assign details to variables
-    while IFS=',' read -r name team position points rebounds assist ppg rpg apg mvp_rating games year status; do
-        case $counter in
-            1)
-                player1="$name"
-                player1_team="$team"         # Assign team
-                player1_position="$position"  # Assign position
-                ;;
-        esac
-        ((counter++))
-    done <<< "$top_players" 
+    # Read player details from the top_player line
+    IFS=',' read -r name team position points rebounds assist ppg rpg apg mvp_rating games year status <<< "$top_player"
     
     # Output the MVP details
-    echo "Congratulations to $player1 on winning the Regular Season MVP!"
-    echo "Team: $player1_team"
-    echo "Position: $player1_position"
-    echo "$1,$player1,$player1_team,$player1_position" >> "$mvpsFilePath"
+    echo "Congratulations to $name on winning the Regular Season MVP!"
+    echo "Team: $team"
+    echo "Position: $position"
+    echo "$1,$name,$team,$position" >> "$mvpsFilePath"
 }
+
 
 
 isSeasonComplete() {
